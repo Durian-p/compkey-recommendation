@@ -1,10 +1,10 @@
-import os
 import codecs
+from tqdm import tqdm
 
 # 统一的目标编码
 target_encoding = "utf-8"
 
-for i in range(1, 32):
+for i in tqdm(range(1, 32), ncols=100):
     if i == 25:
         continue
     if i < 10:

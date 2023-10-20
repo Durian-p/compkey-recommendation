@@ -161,5 +161,8 @@ cython_debug/
 .idea/
 dataset/origin/SogouQ/*.filter
 dataset/origin/SogouQ.reduced/*
+dataset/origin/dureader_raw/*
 dataset/result/utf8/*.filter
-dataset/queries.result
+dataset/result/*.result
+
+
