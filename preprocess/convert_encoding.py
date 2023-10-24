@@ -22,7 +22,7 @@ def convert_encoding():
             try:
                 content = input_file.read()
                 # 将文件内容转换为UTF-8编码并写入输出文件
-                output_file.write(content.decode("gbk", errors="ignore"))
+                output_file.write(content.decode("gb18030", errors="ignore"))
                 print(f"Converted {input_file} to {target_encoding}")
             except Exception as e:
                 print(f"Error processing {input_file}: {str(e)}")
