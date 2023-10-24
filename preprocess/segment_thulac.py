@@ -5,7 +5,7 @@ def segmentKey():
     output_dir = "../dataset/result/thulac/normal_segmented_"
     keywords = []
 
-    thu = thulac.thulac(seg_only=True)  # 初始化THULAC
+    thu = thulac.thulac(user_dict='./keyword.txt',seg_only=True)  # 初始化THULAC
 
     with open("./keyword.txt", "r", encoding="utf8") as keyword_file, open(input_dir, "r", encoding="utf8") as input_file:
         for line in keyword_file:
