@@ -21,5 +21,7 @@ def segmentKey():
                         output_file.write(" ".join(word_list))
 
 
+
+
 if __name__ == '__main__':
     segmentKey()
