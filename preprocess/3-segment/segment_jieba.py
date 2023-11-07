@@ -1,5 +1,6 @@
 import jieba
 from tqdm import tqdm
+import jieba.posseg as pseg
 import os
 import re
 
@@ -12,6 +13,13 @@ def load_custom_dicts_from_directory(directory):
         jieba.load_userdict(dict_path)
         print(f"Loaded custom dictionary from {dict_path}")
 
+def clean_special_characters(text):
+    # 去除书名号
+    text = re.sub(r'《|》', '', text)
+    # 去除标点符号和特殊字符
+    text = re.sub(r'[^\w\s]', '', text)
+    return text
+
 
 def segmentKey():
     # 词库处理完毕，jieba读取词典
@@ -19,7 +27,7 @@ def segmentKey():
     # 加载自定义词典文件
     load_custom_dicts_from_directory(custom_dict_directory)
     # 启用缓存以加速分词
-    jieba.enable_paddle()  # 启用paddle模式
+    # jieba.enable_paddle()  # 启用paddle模式
 
 
     input_dir = "../../dataset/result/2-extract/queries.result"
@@ -44,7 +52,14 @@ def segmentKey():
         for line in tqdm(input_file, desc="Processing", ncols=100):
             for keyword in keywords:
                 if keyword in line.strip():
-                    word_list = list(jieba.cut(line))  # 在此切换模式
+                    line = clean_special_characters(line)
+                    word_list = []
+                    words_with_pos = pseg.cut(line)  # 在此切换模式
+                    for word, pos in words_with_pos:
+                        # 根据词性过滤掉不需要的词语
+                        if pos in ["u","y"]: # 助词 非语素词 语气词
+                            continue
+                        word_list.append(word)
                     with open(output_dir_prefix + keyword + ".result", "a", encoding="utf8") as output_file:
                         output_file.write(" ".join(word_list))
 
