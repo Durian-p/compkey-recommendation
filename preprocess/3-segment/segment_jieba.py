@@ -57,7 +57,7 @@ def segmentKey():
                     words_with_pos = pseg.cut(line)  # 在此切换模式
                     for word, pos in words_with_pos:
                         # 根据词性过滤掉不需要的词语
-                        if pos in ["u","y"]: # 助词 非语素词 语气词
+                        if pos in ["u"]: # 助词 语气词
                             continue
                         word_list.append(word)
                     with open(output_dir_prefix + keyword + ".result", "a", encoding="utf8") as output_file:

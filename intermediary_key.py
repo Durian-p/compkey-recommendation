@@ -16,6 +16,7 @@ def main():
                         related_words[word] = 1
                     else:
                         related_words[word] += 1
+
         del related_words[keyword]
 
         total = 0

@@ -11,9 +11,9 @@ def extract():
             if i == 25:
                 continue
             if i < 10:
-                input_file = "../dataset/result/utf8/access_log.2006080" + str(i) + ".decode.filter"
+                input_file = "../../dataset/result/1-convert/access_log.2006080" + str(i) + ".decode.filter"
             else:
-                input_file = "../dataset/result/utf8/access_log.200608" + str(i) + ".decode.filter"
+                input_file = "../../dataset/result/1-convert/access_log.200608" + str(i) + ".decode.filter"
             # 打开目标文本文件
             with open(input_file, "r", encoding="utf8") as input_file:
                 # 逐行读取目标文本文件
