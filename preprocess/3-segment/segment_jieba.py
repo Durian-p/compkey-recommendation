@@ -1,14 +1,33 @@
 import jieba
 from tqdm import tqdm
 import os
+import re
+
+# 定义一个函数，加载指定目录下的所有txt文件作为词库
+def load_custom_dicts_from_directory(directory):
+    custom_dict_files = [f for f in os.listdir(directory) if f.endswith(".txt")]
+
+    for dict_file in custom_dict_files:
+        dict_path = os.path.join(directory, dict_file)
+        jieba.load_userdict(dict_path)
+        print(f"Loaded custom dictionary from {dict_path}")
+
 
 def segmentKey():
-    input_dir = "../dataset/result/queries.result"
-    output_dir_prefix = "../dataset/result/jieba/normal_segmented_"
+    # 词库处理完毕，jieba读取词典
+    custom_dict_directory = "D:\\program\\machine\\compkey\\dataset\\result\\worddict"
+    # 加载自定义词典文件
+    load_custom_dicts_from_directory(custom_dict_directory)
+    # 启用缓存以加速分词
+    jieba.enable_paddle()  # 启用paddle模式
+
+
+    input_dir = "../../dataset/result/2-extract/queries.result"
+    output_dir_prefix = "../../dataset/result/3-segment/jieba/normal_segmented_"
     keywords = []
     output_dirs = []
-    with open("keyword.txt", "r", encoding="utf8") as keyword_file, open(input_dir, "r",
-                                                                           encoding="utf8") as input_file:
+    with open("../../keyword.txt", "r", encoding="utf8") as keyword_file, open(input_dir, "r",
+                                                                               encoding="utf8") as input_file:
         for line in keyword_file:
             keyword = line.strip()
             jieba.add_word(keyword)

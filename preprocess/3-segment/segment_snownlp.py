@@ -2,13 +2,14 @@ from snownlp import SnowNLP
 from tqdm import tqdm
 import os
 
+
 def segmentKey():
-    input_dir = "../dataset/result/queries.result"
-    output_dir_prefix = "../dataset/result/snownlp/normal_segmented_"
+    input_dir = "../../dataset/result/2-extract/queries.result"
+    output_dir_prefix = "../dataset/result/3-segment/snownlp/normal_segmented_"
     keywords = []
     output_dirs = []
-    with open("keyword.txt", "r", encoding="utf8") as keyword_file, open(input_dir, "r",
-                                                                           encoding="utf8") as input_file:
+    with open("../../keyword.txt", "r", encoding="utf8") as keyword_file, open(input_dir, "r",
+                                                                               encoding="utf8") as input_file:
         for line in keyword_file:
             keyword = line.strip()
             keywords.append(keyword)
@@ -28,6 +29,7 @@ def segmentKey():
                     word_list = s.words
                     with open(output_dir_prefix + keyword + ".result", "a", encoding="utf8") as output_file:
                         output_file.write(" ".join(word_list) + "\n")
+
 
 if __name__ == '__main__':
     segmentKey()

@@ -3,11 +3,11 @@ from tqdm import tqdm
 import os
 
 def segmentKey():
-    input_dir = "../dataset/result/queries.result"
-    output_dir_prefix = "../dataset/result/hanlp/normal_segmented_"
+    input_dir = "../../dataset/result/2-extract/queries.result"
+    output_dir_prefix = "../dataset/result/3-segment/hanlp/normal_segmented_"
     keywords = []
     output_dirs = []
-    with open("keyword.txt", "r", encoding="utf8") as keyword_file, open(input_dir, "r", encoding="utf8") as input_file:
+    with open("../../keyword.txt", "r", encoding="utf8") as keyword_file, open(input_dir, "r", encoding="utf8") as input_file:
         for line in keyword_file:
             keyword = line.strip()
             HanLP.Config.CustomDictionary.add(keyword)  # 添加用户自定义词汇

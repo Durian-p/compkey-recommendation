@@ -11,10 +11,10 @@ def convert_encoding():
             continue
         if i < 10:
             input_file = "../dataset/origin/SogouQ/access_log.2006080" + str(i) + ".decode.filter"
-            output_file = "../dataset/result/utf8/access_log.2006080" + str(i) + ".decode.filter"
+            output_file = "../dataset/result/1-covert/access_log.2006080" + str(i) + ".decode.filter"
         else:
             input_file = "../dataset/origin/SogouQ/access_log.200608" + str(i) + ".decode.filter"
-            output_file = "../dataset/result/utf8/access_log.200608" + str(i) + ".decode.filter"
+            output_file = "../dataset/result/1-convert/access_log.200608" + str(i) + ".decode.filter"
         print(input_file)
         print(output_file)
 

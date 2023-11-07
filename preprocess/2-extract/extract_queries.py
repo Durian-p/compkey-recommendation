@@ -3,7 +3,7 @@ from tqdm import tqdm
 
 def extract():
     # 读取目标文本文件
-    output_file = "../dataset/result/queries.result"
+    output_file = "../../dataset/result/2-extract/queries.result"
 
     # 打开输出文件
     with open(output_file, "w", encoding="utf-8") as output_file:

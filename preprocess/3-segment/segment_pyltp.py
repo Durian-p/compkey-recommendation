@@ -2,16 +2,16 @@ import os
 from tqdm import tqdm
 from pyltp import Segmentor
 def segmentKey():
-    input_dir = "../dataset/result/queries.result"
-    output_dir = "../dataset/result/pyltp/normal_segmented_"
+    input_dir = "../../dataset/result/2-extract/queries.result"
+    output_dir = "../dataset/result/3-segment/pyltp/normal_segmented_"
     keywords = []
     output_dirs = []
 
-    cws_model_path = os.path.join('../ltp_data_v3.4.0', 'cws.model')  # 分词模型
-    segmentor = Segmentor(cws_model_path,'./keyword.txt')
+    cws_model_path = os.path.join('../../ltp_data_v3.4.0', 'cws.model')  # 分词模型
+    segmentor = Segmentor(cws_model_path, '../../keyword.txt')
 
 
-    with open("./keyword.txt", "r", encoding="utf8") as keyword_file, open(input_dir, "r", encoding="utf8") as input_file:
+    with open("../../keyword.txt", "r", encoding="utf8") as keyword_file, open(input_dir, "r", encoding="utf8") as input_file:
         for line in keyword_file:
             keyword = line.strip()
             keywords.append(keyword)

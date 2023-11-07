@@ -1,13 +1,13 @@
 import thulac
 from tqdm import tqdm
 def segmentKey():
-    input_dir = "../dataset/result/queries.result"
-    output_dir = "../dataset/result/thulac/normal_segmented_"
+    input_dir = "../../dataset/result/2-extract/queries.result"
+    output_dir = "../dataset/result/3-segment/thulac/normal_segmented_"
     keywords = []
 
     thu = thulac.thulac(user_dict='./keyword.txt',seg_only=True)  # 初始化THULAC
 
-    with open("./keyword.txt", "r", encoding="utf8") as keyword_file, open(input_dir, "r", encoding="utf8") as input_file:
+    with open("../../keyword.txt", "r", encoding="utf8") as keyword_file, open(input_dir, "r", encoding="utf8") as input_file:
         for line in keyword_file:
             keyword = line.strip()
             keywords.append(keyword)

@@ -17,7 +17,6 @@
 
 ## 2. 项目依赖
 python3.9
-
 jieba==0.42.1
-
 tqdm==4.66.1
+pyltp
