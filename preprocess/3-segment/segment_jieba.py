@@ -48,6 +48,5 @@ def segmentKey():
                     with open(output_dir_prefix + keyword + ".result", "a", encoding="utf8") as output_file:
                         output_file.write(" ".join(word_list))
 
-
 if __name__ == '__main__':
     segmentKey()
